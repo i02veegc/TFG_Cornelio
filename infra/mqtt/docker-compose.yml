@@ -1,0 +1,10 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: tfg-mosquitto
+    ports:
+      - "1883:1883"   # MQTT/TCP   - backend, Unity, ESP32
+      - "9001:9001"   # MQTT/WSS   - web admin (mqtt.js en navegador)
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped

@@ -1,0 +1,23 @@
+{
+  "name": "tfg-metaverso",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prototipo de metaverso sobre gemelo digital de feria de arte plástico",
+  "scripts": {
+    "postinstall": "npm --prefix backend/api install && npm --prefix frontend/frontend install",
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm --prefix backend/api run dev\" \"npm --prefix frontend/frontend run dev\"",
+    "dev:backend": "npm --prefix backend/api run dev",
+    "dev:frontend": "npm --prefix frontend/frontend run dev",
+    "build": "npm --prefix frontend/frontend run build",
+    "lint": "npm --prefix frontend/frontend run lint",
+    "mqtt:up": "docker compose -f infra/mqtt/docker-compose.yml up -d",
+    "mqtt:down": "docker compose -f infra/mqtt/docker-compose.yml down",
+    "mqtt:logs": "docker compose -f infra/mqtt/docker-compose.yml logs -f mosquitto"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

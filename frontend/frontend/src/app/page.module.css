@@ -1,0 +1,210 @@
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+/* Stat cards */
+.statCard {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px 20px;
+  height: 100%;
+  border-left: 4px solid #e9ecef;
+}
+
+.accent_green {
+  border-left-color: #2ea043;
+}
+
+.accent_red {
+  border-left-color: #d92d20;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #6c757d;
+  margin-bottom: 6px;
+}
+
+.statValue {
+  font-size: 28px;
+  font-weight: 600;
+  color: #0f0f10;
+  line-height: 1.1;
+}
+
+.statSub {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+/* Widgets */
+.widget {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  height: 100%;
+}
+
+.widgetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.widgetTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.widgetLink {
+  font-size: 13px;
+  color: #2ea043;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.widgetLink:hover {
+  text-decoration: underline;
+}
+
+.empty {
+  color: #6c757d;
+  font-size: 14px;
+  padding: 16px 0;
+  text-align: center;
+}
+
+/* Ventas list */
+.ventasList,
+.destacadasList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ventaItem,
+.destacadaItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.ventaItem:last-child,
+.destacadaItem:last-child {
+  border-bottom: none;
+}
+
+.ventaThumb,
+.destacadaThumb {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.ventaMain,
+.destacadaMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.ventaTitle {
+  font-weight: 500;
+  color: #0f0f10;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ventaSub {
+  font-size: 13px;
+  color: #6c757d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ventaPrecio {
+  font-weight: 600;
+  color: #0f0f10;
+  white-space: nowrap;
+}
+
+/* System status */
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statusOk {
+  background: #2ea043;
+  box-shadow: 0 0 0 3px rgba(46, 160, 67, 0.2);
+}
+
+.statusBad {
+  background: #adb5bd;
+}
+
+.statusLabel {
+  flex: 1;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.statusBadge {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.statusNote {
+  font-size: 12px;
+  color: #6c757d;
+  margin: 12px 0 0 0;
+  font-style: italic;
+}

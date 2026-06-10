@@ -1,0 +1,76 @@
+services:
+  database:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tfg
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tfg
+
+  mqtt:
+    image: eclipse-mosquitto:2.0
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./infra/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - tfg
+
+  api:
+    build:
+      context: ./backend/api
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+      - mqtt
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: tfg
+      DB_HOST: database
+      DB_PORT: 5432
+      PORT: 3000
+      MQTT_URL: mqtt://mqtt:1883
+    networks:
+      - tfg
+
+  frontend:
+    build:
+      context: ./frontend/frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:3000
+        NEXT_PUBLIC_MQTT_URL: ws://localhost:9001
+    depends_on:
+      - api
+      - mqtt
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3000
+      NEXT_PUBLIC_MQTT_URL: ws://localhost:9001
+      PORT: 3001
+    networks:
+      - tfg
+
+volumes:
+  postgres_data:
+
+networks:
+  tfg:
+    name: tfg_default

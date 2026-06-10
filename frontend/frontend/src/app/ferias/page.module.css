@@ -1,0 +1,363 @@
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search {
+  flex: 0 1 320px;
+  min-width: 320px;
+  max-width: 380px;
+}
+
+.sort {
+  flex: 0 0 auto;
+  min-width: 280px;
+  margin-left: auto;
+  max-width: 280px;
+}
+
+@media (max-width: 829.80px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search,
+  .sort {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 280px;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    margin-left: 0;
+  }
+
+  .search {
+    align-self: flex-start;
+  }
+
+  .sort {
+    align-self: flex-end;
+  }
+}
+
+/* Results bar */
+.resultsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.results {
+  font-size: 14px;
+  color: grey;
+}
+
+/* Cards */
+.card {
+  height: 100%;
+  border: 1px solid #e9ecef;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card:focus-visible {
+  outline: 2px solid #2ea043;
+  outline-offset: 2px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #495057;
+  margin-bottom: 6px;
+}
+
+.meta i {
+  color: #6c757d;
+}
+
+.description {
+  font-size: 14px;
+  color: #495057;
+  margin-top: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer {
+  background: #fff;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.dot {
+  color: #adb5bd;
+}
+
+/* Status pill (mismo lenguaje que /obras pero con variantes propias) */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.statusEnCurso {
+  background: #e6f4ea;
+  color: #1e7c3a;
+}
+
+.statusEnCurso .statusDot {
+  background: #2ea043;
+  box-shadow: 0 0 0 2px rgba(46, 160, 67, 0.2);
+}
+
+.statusProxima {
+  background: #e7f1ff;
+  color: #0a58ca;
+}
+
+.statusProxima .statusDot {
+  background: #0d6efd;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+}
+
+.statusFinalizada {
+  background: #f1f3f5;
+  color: #495057;
+}
+
+.statusFinalizada .statusDot {
+  background: #adb5bd;
+}
+
+.statusSinFechas {
+  background: #fff8e1;
+  color: #8a6d00;
+}
+
+.statusSinFechas .statusDot {
+  background: #d4a800;
+}
+
+/* Modal */
+.blurBackdrop {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(15, 15, 16, 0.35) !important;
+}
+
+.modalTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.modalDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.detailLabel {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #6c757d;
+}
+
+.detailDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailDescription p {
+  margin: 0;
+  font-size: 14px;
+  color: #495057;
+  line-height: 1.5;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.editFooterRight {
+  display: flex;
+  gap: 8px;
+}
+
+.confirmDelete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #fde8e8;
+  border-radius: 6px;
+  flex-wrap: wrap;
+}
+
+.confirmDeleteText {
+  font-size: 14px;
+  color: #b42318;
+  font-weight: 500;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Multi-select de obras */
+.obrasList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 4px;
+  background: #fff;
+}
+
+.obraRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.1s;
+  margin: 0;
+}
+
+.obraRow:hover {
+  background: #f1f3f5;
+}
+
+.obraRowChecked {
+  background: #e6f4ea;
+}
+
+.obraRowChecked:hover {
+  background: #d6ebda;
+}
+
+.obraRow input {
+  margin: 0;
+  cursor: pointer;
+}
+
+.obraRowTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f0f10;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.obraRowAutor {
+  font-size: 13px;
+  color: #6c757d;
+  white-space: nowrap;
+}
+
+.obrasEmpty {
+  font-size: 14px;
+  color: #6c757d;
+  padding: 12px;
+  text-align: center;
+  border: 1px dashed #dee2e6;
+  border-radius: 6px;
+}
